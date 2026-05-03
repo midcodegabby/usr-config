@@ -60,6 +60,13 @@ case "$ARCH" in
         ;;
 esac
 
+# Load pyenv if present
+if [[ -d "${HOME}/.pyenv" ]]; then
+    export PYENV_ROOT="${HOME}/.pyenv"
+    [[ -d "${PYENV_ROOT}/bin" ]] && export PATH="${PYENV_ROOT}/bin:$PATH"
+    eval "$(pyenv init -)"
+fi
+
 # DO LAST #########################################################################
 # Source local machine .bashrc if present ##########################################
 if [[ -f "${HOME}/.bashrc.local" ]]; then
