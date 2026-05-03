@@ -50,3 +50,8 @@ set ruler
 " Set up search highlighting
 hi Search ctermbg=black ctermfg=white guibg=#000000 guifg=#FFFFFF
 hi CurSearch ctermbg=red ctermfg=black guibg=#FF0000 guifg=#000000
+
+" Source local vim rules
+if filereadable(expand("$HOME/.vimrc.local"))
+  source "$HOME/.vimrc.local"
+endif

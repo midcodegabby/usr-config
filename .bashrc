@@ -47,3 +47,12 @@ set -o vi
 shopt -s direxpand
 
 export PRJ="/home/${USER}/workspace/projects"
+
+# Toolchains
+export PATH="${HOME}/.local/opt/arm-gnu-toolchain-15.2.rel1-aarch64-arm-none-eabi/bin:${HOME}/.local/opt/xpack-openocd-0.12.0-7/bin:${PATH}"
+
+# DO LAST #########################################################################
+# Source local machine .bashrc if present ##########################################
+if [[ -f "${HOME}/.bashrc.local" ]]; then
+    . "${HOME}/.bashrc.local"
+fi
