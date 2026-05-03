@@ -49,7 +49,16 @@ shopt -s direxpand
 export PRJ="/home/${USER}/workspace/projects"
 
 # Toolchains
-export PATH="${HOME}/.local/opt/arm-gnu-toolchain-15.2.rel1-aarch64-arm-none-eabi/bin:${HOME}/.local/opt/xpack-openocd-0.12.0-7/bin:${PATH}"
+ARCH=$(uname -m)
+
+case "$ARCH" in 
+    aarch64)
+        export PATH="${HOME}/.local/opt/arm-gnu-toolchain-15.2.rel1-aarch64-arm-none-eabi/bin:${HOME}/.local/opt/xpack-openocd-0.12.0-7/bin:${PATH}"
+        ;;
+    x86_64)
+        export PATH="${HOME}/.local/opt/arm-gnu-toolchain-15.2.rel1-x86_64-arm-none-eabi/bin:${HOME}/.local/opt/xpack-openocd-0.12.0-7/bin:${PATH}"
+        ;;
+esac
 
 # DO LAST #########################################################################
 # Source local machine .bashrc if present ##########################################
