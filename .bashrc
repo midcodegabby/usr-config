@@ -51,7 +51,7 @@ export PRJ="/home/${USER}/workspace/projects"
 # Toolchains
 ARCH=$(uname -m)
 
-case "$ARCH" in 
+case "$ARCH" in
     aarch64)
         export PATH="${HOME}/.local/opt/arm-gnu-toolchain-15.2.rel1-aarch64-arm-none-eabi/bin:${HOME}/.local/opt/xpack-openocd-0.12.0-7/bin:${PATH}"
         ;;
@@ -62,6 +62,13 @@ esac
 
 # XDG directory variable - typically ~/.config
 [[ ! -z XDG_CONFIG_HOME ]] && export XDG_CONFIG_HOME="${HOME}/.config"
+
+# Load pyenv if present
+if [[ -d "${HOME}/.pyenv" ]]; then
+    export PYENV_ROOT="${HOME}/.pyenv"
+    [[ -d "${PYENV_ROOT}/bin" ]] && export PATH="${PYENV_ROOT}/bin:$PATH"
+    eval "$(pyenv init -)"
+fi
 
 # DO LAST #########################################################################
 # Source local machine .bashrc if present ##########################################
