@@ -60,6 +60,9 @@ case "$ARCH" in
         ;;
 esac
 
+# XDG directory variable - typically ~/.config
+[[ ! -z XDG_CONFIG_HOME ]] && export XDG_CONFIG_HOME="${HOME}/.config"
+
 # DO LAST #########################################################################
 # Source local machine .bashrc if present ##########################################
 if [[ -f "${HOME}/.bashrc.local" ]]; then
